@@ -188,6 +188,7 @@
         <dependency>
             <artifactId>bipay-core</artifactId>
             <groupId>com.spark.bipay</groupId>
+            <version>1.6-SNAPSHOT</version>
         </dependency>
     </dependencies>
 </project>

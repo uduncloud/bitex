@@ -150,7 +150,7 @@ public class WithdrawRecordService extends BaseService {
                 }
                 log.info("coinType={},subCoinType={}",coinType,subCoinType);
                 //发起转账申请
-                biPayService.transfer(String.valueOf(withdrawRecord.getId()),withdrawRecord.getArrivedAmount(),coinType,subCoinType,withdrawRecord.getAddress());
+                biPayService.transfer(String.valueOf(withdrawRecord.getId()),withdrawRecord.getArrivedAmount(),coinType,subCoinType,withdrawRecord.getAddress(),withdrawRecord.getRemark());
             } else if (status == WAITING && biPayService.isSupportedCoin(withdrawRecord.getCoin().getUnit())
                     && biPayService.checkSystemAddress(withdrawRecord.getAddress())) {
                 //假如转出地址为内部地址

@@ -10,6 +10,7 @@
 3. redis数据库,用于处理用户登录会话信息
 4. mongodb数据库,用于存储币币K线数据
 5. 安装kafka
+6. 优盾钱包接入(https://www.uduncloud.com)
 
 ## 额外功能准备
 1. OSS配置
@@ -32,4 +33,4 @@ mvn clean install
 6. exchange-api: 币币交易API服务包
 7. market: 行情服务包
 8. ucenter-api: 用户中心包
-9. wallet-bipay: 钱包管理服务包
+9. wallet-bipay: 钱包管理服务包,接入优盾钱包

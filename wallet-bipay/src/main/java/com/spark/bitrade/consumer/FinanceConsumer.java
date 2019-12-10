@@ -101,7 +101,7 @@ public class FinanceConsumer {
                     withdrawRecordService.withdrawSuccessForSystem(withdrawId);
                 }else {
                     //发起转账申请
-                    biPayService.transfer(String.valueOf(withdrawId), withdrawRecord.getArrivedAmount(), coinType, subCoinType, withdrawRecord.getAddress());
+                    biPayService.transfer(String.valueOf(withdrawId), withdrawRecord.getArrivedAmount(), coinType, subCoinType, withdrawRecord.getAddress(),withdrawRecord.getRemark());
                 }
             }else if (coin != null && coin.getCanAutoWithdraw() == IS_TRUE) {
                 BigDecimal minerFee = coin.getMinerFee();

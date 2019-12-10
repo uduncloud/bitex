@@ -76,8 +76,10 @@ public class BiPayService {
      */
     public Address createCoinAddress(CoinType coinType){
         String callbackUrl = host + "/bipay/notify";
+        String addressAlias = ""; // 地址别名，便于在优盾钱包端的显示
+        String udunWalletId = "";   // 指定地址由哪个钱包进行生成，为空默认从主钱包生成地址
         try {
-            ResponseMessage<Address> resp =  biPayClient.createCoinAddress(coinType.getCode(), callbackUrl);
+            ResponseMessage<Address> resp =  biPayClient.createCoinAddress(coinType.getCode(), callbackUrl, addressAlias, udunWalletId);
             return  resp.getData();
         }
         catch (Exception e){
@@ -87,10 +89,10 @@ public class BiPayService {
     }
 
 
-    public ResponseMessage<String> transfer(String orderId, BigDecimal amount,CoinType coinType,String subCoinType,String address){
+    public ResponseMessage<String> transfer(String orderId, BigDecimal amount,CoinType coinType,String subCoinType,String address, String memo){
         String callbackUrl = host + "/bipay/notify";
         try {
-            ResponseMessage<String> resp =  biPayClient.transfer(orderId,amount,coinType.getCode(),subCoinType,address,callbackUrl);
+            ResponseMessage<String> resp =  biPayClient.transfer(orderId,amount,coinType.getCode(),subCoinType,address,callbackUrl,memo);
             return resp;
         }
         catch (Exception e){
@@ -100,6 +102,7 @@ public class BiPayService {
     }
 
     public List<Transaction> queryTransaction() throws Exception {
-        return biPayClient.queryTransaction();
+//        return biPayClient.queryTransaction();
+        return null;
     }
 }
